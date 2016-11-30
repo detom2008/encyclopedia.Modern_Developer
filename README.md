@@ -109,3 +109,75 @@ Html:
 
 In the example above the text will appear on top of the image due to it having a greater z-index value.
 
+
+----------
+
+#4.  table-layout #
+
+The table-layout property sets the table layout algorithm to be used for a table. table-layout supports auto, fixed, initial, and inherit.
+
+The default property value `auto` automatically sets the table layout algorithm to the widest column width is set by the content in the cells making it an unbreakable by containing all content within the table cell. The one drawback is that it can be slow because it needs to read through all the content cells in the table before it can determine the final layout width.
+
+The `fixed` property value is dependent on the table's width and the width of the columns, not the contents of the cells. This horizontal layout is faster because it allows the browser to display the table once the first row has been received.
+
+The last two properties are `initial` and `inherit`. The `initial` property simply sets its default value while `inherit` inherits its property from its parent element.
+
+
+```
+table.ex1 {
+    table-layout: auto;
+}
+
+table.ex2 {
+    table-layout: fixed;
+}
+
+<table class="ex1">
+  <tr>
+    <td width="5%">1000000000000000000000000000</td>
+    <td width="95%">10000000</td>
+  </tr>
+</table>
+
+<p>table-layout: fixed:</p>
+<table class="ex2">
+  <tr>
+    <td width="5%">1000000000000000000000000000</td>
+    <td width="95%">10000000</td>
+  </tr>
+</table>
+```
+In the examples above we have set the the first example to `auto`. This will make sure both numbers will fit within the cell. The second example will cause the larger number to overflow outside the containing cell.
+
+
+----------
+
+#5.  parseFloat() #
+
+The `parseFloat()` function parses a string argument passed into it and returns a floating point number. `NaN` is returned if the string does not begin with a valid number. `parseFloat()` parses and returns the first number that it encounters in the string. Additionally parsing will stop immediately and the value is returned when `parseFloat()` encounters a character that is not a valid number.
+
+Below are parsed string examples.
+
+```
+parseFloat("20"); // -> 20
+parseFloat("20.00"); // -> 20
+parseFloat("4.20"); // -> 4.20
+parseFloat("100 200 300"); // -> 100
+parseFloat("802 Vermont"); // -> 802
+parseFloat("Vermont 802"); // -> NaN
+
+```
+
+----------
+
+#6.  String.prototype.valueOf() #
+
+This method is usually called internally by JavaScript and not explicitly in code.
+
+The `valueOf()` function is a internal method of JavaScript’s built in String object. It returns a primitive value String object as a string data type. The value returned is the same as you would get using `String.prototype.toString()`. `valueOf()` is usually never explicitly used in code. The following is an example of `valueOf()`:
+
+```
+var str = new String('Hello world');
+str.valueOf(); // -> 'Hello world'
+```
+
